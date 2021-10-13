@@ -69,7 +69,7 @@ public class C04_DropDownAmazon {
         }
 
         //-Test 2
-        //  1. Kategori menusunden Books secenegini secin
+        //1. Kategori menusunden Books secenegini secin
         //2. Arama kutusuna Java yazin ve aratin
         //3. Bulunan sonuc sayisini yazdirin
         //4. Sonucun Java kelimesini icerdigini test edin
