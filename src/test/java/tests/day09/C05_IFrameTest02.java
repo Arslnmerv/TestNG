@@ -32,5 +32,17 @@ public class C05_IFrameTest02 extends TestBase {
         driver.findElement(By.xpath("//img[@src='Jmeter720.png']")).click();
         //            5) ikinci iframe'deki (Jmeter Made Easy) linke (https://www.guru99.com/live-seleniumproject.html) tıklayınız
 
+
+        // 1' den fazla window acilan durumlarda, ilk sayfadan baslayarak adim adim her sayfanin handle
+        // degerini alip kaydetmemiz gerekir
+        // 1. adim ===> Sadece 1 sayfa var iken o sayfanin windowHandle degerini alip String bir
+        // degiskene kaydediyoruz
+        // 2. adim ===> Yeni sayfa acildiktan sonra acik olan tum sayfalarin windowHandle degerlerini
+        // alip bir Set' e atama yapiyoruz
+        // 3. adim ===> Set' deki elemanlardan 1. sayfa handle' ina esit olmayani 2. sayfanin
+        // windowHandle degeri olarak bir String' e atama yapiyoruz
+        // 4. adim ===> Hem 1. sayfanin hem de 2. sayfanin windowHandle degerleri elimizde oldugu icin
+        // istedigimiz sayfaya gecis yapabiliriz
+        // driver.switchTo().window("gecmek istedigimiz sayfanin handle degeri")
     }
 }
