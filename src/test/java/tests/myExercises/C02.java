@@ -23,9 +23,12 @@ public class C02 extends TestBase {
 
         // 3- Ad, soyad, mail ve sifre kutularina deger yazalim
 
-        driver.findElement(By.name("firstname")).sendKeys("Ahmet" + Keys.TAB + "Kaya"
-                + Keys.TAB + "ahmetkaya0101@gmail.com"
-                + Keys.TAB + "AhmetKaya27Ak.");
+        driver.findElement(By.name("firstname")).sendKeys("Ayse" + Keys.TAB + "Aralik"
+                + Keys.TAB + "aysearalik0101@gmail.com");
+
+        WebElement emailTekrari = driver.findElement(By.xpath("(//input[@data-type='text'])[4]"));
+        emailTekrari.click();
+        emailTekrari.sendKeys("aysearalik0101@gmail.com" + Keys.TAB + "1453.");
 
         // 4- Bu secimleri yaptiktan sonra 5 saniye bekleyelim
 
@@ -40,7 +43,7 @@ public class C02 extends TestBase {
         WebElement dogumTarihiAy = driver.findElement(By.xpath("//select[@id='month']"));
         dogumTarihiAy.click();
         Select secim2 = new Select(dogumTarihiAy);
-        secim2.selectByVisibleText("Tem");
+        secim2.selectByValue("7");
         WebElement dogumTarihiYil = driver.findElement(By.xpath("//select[@id='year']"));
         dogumTarihiYil.click();
         Select secim3 = new Select(dogumTarihiYil);
@@ -60,17 +63,6 @@ public class C02 extends TestBase {
         WebElement kaydolButtonu = driver.findElement(By.name("websubmit"));
         kaydolButtonu.click();
 
-        // Tam sorunu bilmemekle beraber, 2 ekran kullanimindan ya da Test Page Database kaynakli bir
-        // sorundan dolayi; acilan WebPage' de kayit ol butonuna bastiktan sonra, bizden yeniden e-mail
-        // girmemizi istiyor. Halbuki normal tarayicidan siteye giris yaptigimizda sayfadaki form
-        // tablosunda en basta sadece 1 sefer e-mail girisi yapilacak yer gozukuyor. Bu yüzden ben de
-        // böyle bir yol gelistirip, sisteme : " Biz her türlü kayit oluruz kardes, sen rahat ol " sosyal
-        // mesajini vermis oldum :D
-
-        WebElement emailTekrari = driver.findElement(By.xpath("(//input[@data-type='text'])[4]"));
-        emailTekrari.click();
-        emailTekrari.sendKeys("ahmetkaya0101@gmail.com");
-        kaydolButtonu.click();
     }
 
 }
