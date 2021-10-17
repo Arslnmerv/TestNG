@@ -12,34 +12,32 @@ import utilities.TestBase;
 public class C02_KeyboardActions extends TestBase {
 //1- Bir Class olusturalim D14_KeyboardActions2
 
-
-
-//5- videoyu calistirdiginizi test edin
-
     @Test
-    public void test() {
-
-        driver.get("https://html.com/tags/iframe/");
+    public void test() throws InterruptedException {
 
         //2- https://html.com/tags/iframe/ sayfasina gidelim
 
-        Actions actions = new Actions(driver);
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        driver.get("https://html.com/tags/iframe/");
 
-        WebElement element = driver.findElement(By.className("lazy-loaded"));
-        driver.switchTo().frame(element);
+        //3- video’yu gorecek kadar asagi inin
+        Actions actions = new Actions(driver);
+        actions.
+                sendKeys(Keys.PAGE_DOWN).
+                sendKeys(Keys.PAGE_DOWN).
+                perform();
+        Thread.sleep(3000);
+
+        //4- videoyu izlemek icin Play tusuna basin
+        WebElement iFrame = driver.findElement(By.className("lazy-loaded"));
+        driver.switchTo().frame(iFrame);
 
 
         WebElement playTusu = driver.findElement(By.xpath("//button[@class='ytp-large-play-button ytp-button']"));
+        actions.click(playTusu).perform();
+        Thread.sleep(3000);
 
-        playTusu.click();
-
-
-        //3- video’yu gorecek kadar asagi inin
-
+        //5- videoyu calistirdiginizi test edin
         Assert.assertFalse(playTusu.isDisplayed());
-
-        //4- videoyu izlemek icin Play tusuna basin
 
     }
 }
