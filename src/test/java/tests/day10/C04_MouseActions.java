@@ -12,6 +12,7 @@ public class C04_MouseActions extends TestBase {
 
     @Test
     public void test() {
+        
         //Yeni bir class olusturalim: D14_MouseActions2
         //1- https://demoqa.com/droppable adresine gidelim
 
